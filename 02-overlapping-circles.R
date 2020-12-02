@@ -15,7 +15,7 @@ input <- array(random_points, dim = c(length(random_points) / 2, 2)) %>%
   st_multipoint() %>% 
   st_sfc() %>% 
   st_cast("POINT") %>% 
-  st_buffer(dist = 5) 
+  st_buffer(dist = 6) 
 
 input_colors <- sample(unlist(wesanderson::wes_palettes), length(input), replace = TRUE)
 
