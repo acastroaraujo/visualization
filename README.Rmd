@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 
 This repository contains an assortment of visualizations created mainly with ggplot2.
 
-```{r}
+```{r, echo=FALSE}
 fs::dir_tree()
 ```
 

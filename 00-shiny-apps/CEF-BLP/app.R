@@ -4,9 +4,7 @@
 
 library(ggplot2)
 library(shiny)
-library(acathemes)
-theme_set(acathemes::theme_custom())
-
+source("extra-stuff.R")
 
 # Conditional Expectations Function (CEF) ---------------------------------
 
@@ -50,8 +48,9 @@ BLP <- function(a, b) {
 
 ui <- fluidPage(
   theme = shinythemes::shinytheme("journal"),
+  includeCSS("custom.css"),
+  
   h3("Plotting the CEF and the BLP over Different Distributions of X"),
-  tags$style(".well{ background-color: white; }" ),
   
   # Sidebar layout with a input and output definitions
   fluidRow(
@@ -103,7 +102,8 @@ server <- function(input, output) {
                 fill = "steelblue1",
                 alpha = 0.5,
                 color = "steelblue1", size = 0.5) +
-      labs(y = "density", x = "X")
+      labs(y = "density", x = "X") +
+      theme(panel.grid = element_blank())
   })
   
   output$CEFapprox <- renderPlot({
